@@ -17,7 +17,7 @@ import com.adundar.messageservice.model.Message;
 import com.adundar.messageservice.service.MessageService;
 
 @RestController
-@RequestMapping("/api/1.0")
+@RequestMapping("/api/v1")
 public class MessageController {
 
     @Autowired
@@ -38,7 +38,7 @@ public class MessageController {
         return ResponseEntity.ok(messageService.retrieveMessage(messageId));
     }
 
-    @GetMapping("/messages/{userName}")
+    @GetMapping("/messages/name/{userName}")
     public ResponseEntity<?> retrieveUserMessages(@PathVariable String userName) throws NotFoundException {
         return ResponseEntity.ok(messageService.retrieveUserMessages(userName));
     }

@@ -8,6 +8,6 @@ public interface MessageConsumerService {
 
     void handleUserUpdateEvent(User user);
 
-    void handleUserDeleteEvent(String userId);
+    void handleUserDeleteEvent(User user);
 
 }

@@ -1,14 +1,18 @@
 package com.adundar.messageservice.model;
 
-public class User {
+import java.io.Serializable;
 
-    private String id;
+public class User implements Serializable {
 
-    private String name;
+    private static final long serialVersionUID = -5470804563225486176L;
 
-    private String lastName;
+    private String            id;
 
-    private int    age;
+    private String            name;
+
+    private String            lastName;
+
+    private int               age;
 
     public String getId() {
         return id;

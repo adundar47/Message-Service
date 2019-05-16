@@ -47,7 +47,14 @@ public class UserMapStore implements MapStore<String, User> {
     @Override
     public User load(String s) {
         LOGGER.debug("[load]: Routing message request to User Service. userId: {}", s);
-        Result<User> result = userServiceClient.retrieveUserByName(s);
+        Result<User> result;
+        try {
+            result = userServiceClient.retrieveUserByName(s);
+            LOGGER.debug("[load]: User Service result is -> {}", result.toString());
+        } catch (Exception e) {
+            return null;
+        }
+
         return result.getPayload();
     }
 

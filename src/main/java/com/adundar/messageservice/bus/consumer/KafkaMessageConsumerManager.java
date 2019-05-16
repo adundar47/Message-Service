@@ -35,10 +35,10 @@ public class KafkaMessageConsumerManager implements MessageConsumerService {
 
     @KafkaListener(topics = "${kafka.topic.deleteUser}")
     @Override
-    public void handleUserDeleteEvent(String userId) {
-        LOGGER.debug("User Delete Message Received -> {}", userId);
-        LOGGER.debug("[handleUserDeleteEvent]: handleUserDeleteEvent is processing. userId: {}", userId);
-        userCacheService.delete(userId);
+    public void handleUserDeleteEvent(User user) {
+        LOGGER.debug("User Delete Message Received -> {}", user.toString());
+        LOGGER.debug("[handleUserDeleteEvent]: handleUserDeleteEvent is processing. User: {}", user);
+        userCacheService.delete(user.getName());
     }
 
 }

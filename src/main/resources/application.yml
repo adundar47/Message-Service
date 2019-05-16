@@ -5,7 +5,7 @@ spring:
     mongodb:
       host: 172.22.47.47
       port: 27017
-      database: message      
+      database: message
   kafka:
       bootstrap-servers: 172.22.47.47:9092
       producer:
@@ -58,10 +58,10 @@ spring:
   profiles: lab
   data:
     mongodb:
-      #uri: mongodb://mongodb:27017/message
-      host: mongodb
+      #uri: mongodb://mongo:27017/message
+      host: mongo
       port: 27017
-      database: message   
+      database: message
   kafka:
     bootstrap-servers: kafka:9092
     producer:

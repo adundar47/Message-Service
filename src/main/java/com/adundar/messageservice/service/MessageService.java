@@ -26,7 +26,7 @@ public class MessageService {
     public Message createMessage(Message message) throws NotFoundException {
         User user = userCacheService.get(message.getUserName());
 
-        if (user != null)
+        if (user == null)
             throw new NotFoundException(Utils.getUserNameNotFoundError(message.getUserName()));
 
         return messageRepository.save(message);
@@ -38,7 +38,7 @@ public class MessageService {
 
     public Result<?> retrieveMessage(String messageId) throws NotFoundException {
         Message message = messageRepository.findOne(messageId);
-        if (message != null)
+        if (message == null)
             throw new NotFoundException(Utils.getMessageIdNotFoundError(messageId));
 
         return Result.success(HttpStatus.OK, message);
