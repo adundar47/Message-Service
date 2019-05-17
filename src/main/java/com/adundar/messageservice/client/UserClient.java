@@ -11,6 +11,6 @@ import com.adundar.messageservice.model.User;
 @FeignClient(name = "user-service", fallback = UserClientFallback.class)
 public interface UserClient {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/api/v1/users/{userName}")
+    @RequestMapping(method = RequestMethod.GET, value = "/api/v1/users/name/{userName}")
     Result<User> retrieveUserByName(@PathVariable("userName") String userName);
 }
